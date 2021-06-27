@@ -20,10 +20,18 @@ struct Constants{
     public static let KEY_DECODING_TASK_ERROR = "APIError - decodingtask failure with error ->"
     public static let KEY_PARAMETER_ENCODING_ERROR = "APIError - post parameters failure ->"
     public static let KEY_REQUEST_FAILED = "Request Failed with no response description"
-    public static let KEY_LOCATION_ERROR = "Location Error ->"
+   
     
     //Other Errors
     public static let KEY_CONFIG_READ_ERROR = "Config Read Error ::"
+    public static let KEY_LOCATION_ERROR = "Location Error ->"
+    public static let KEY_GOOGLE_PLACE_ERROR = "Google  Places Location Error ->"
+    public static let KEY_APP_DELEGATE_ERROR = "SceneDelegate is not UIApplication.shared.delegate"
+    public static let KEY_ROOT_CONTROLLER_ERROR = "There is no root controller"
+    public static let KEY_COREDATA_PERSISTENT_STORE_ERROR = "Failed to Load Persistence Store>>>"
+    public static let KEY_COREDATA_SAVE_ERROR = "Core Data Save Entity Error>>"
+    public static let KEY_COREDATA_FETCH_ERROR = "Core Data Fetch Entity Error>>"
+    
     
     
     //Resources
@@ -44,9 +52,22 @@ struct Constants{
     
     //Cell Identifiers
     public static let KEY_FORECASTCELL_IDENTIFIER = "ForeCastCell"
+    public static let KEY_FAVOURITESCELL_IDENTIFIER = "FavouritesCell"
     
     // Default City
     public static let KEY_DEFAULT_CITY = "Nairobi"
+    
+    //Search Controller Text
+    public static let KEY_LOCATION_SEARCH_TEXT = "Search City"
+    
+    //Core data and Core Data Entities
+    public static let KEY_APP_COREDATA = "DVTWeatherCoreData"
+    public static let KEY_WEATHER_ENTITY = "WeatherEntity"
+    public static let KEY_FORECAST_ENTITY = "ForecastEntity"
+    public static let KEY_FAVOURITES_ENTITY = "FavouritesEntity"
+    public static let KEY_SUCCESSFUL_DATA_PERSISTENCE = "Successfull CoreData Persistent for "
+  
+   
     
    
 }

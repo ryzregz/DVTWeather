@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CurrentWeatherrr" representedClassName="CurrentWeatherrr" syncable="YES" codeGenerationType="class"/>
+    <entity name="Entity" representedClassName="Entity" syncable="YES" codeGenerationType="class"/>
+    <entity name="Entity1" representedClassName="Entity1" syncable="YES" codeGenerationType="class"/>
+    <entity name="FavouritesEntity" representedClassName="FavouritesEntity" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="place_id" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ForecastEntity" representedClassName="ForecastEntity" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="country_code" optional="YES" attributeType="String"/>
+        <attribute name="dt" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dt_txt" optional="YES" attributeType="String"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="temp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="temp_max" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="temp_min" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="WeatherEntity" representedClassName="WeatherEntity" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="country_code" optional="YES" attributeType="String"/>
+        <attribute name="dt" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="temp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="temp_max" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="temp_min" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="ForecastEntity" positionX="-36" positionY="27" width="128" height="179"/>
+        <element name="FavouritesEntity" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="WeatherEntity" positionX="-54" positionY="18" width="128" height="164"/>
+        <element name="CurrentWeatherrr" positionX="-45" positionY="81" width="128" height="29"/>
+        <element name="Entity" positionX="-36" positionY="90" width="128" height="29"/>
+        <element name="Entity1" positionX="-27" positionY="99" width="128" height="29"/>
+    </elements>
+</model>

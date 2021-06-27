@@ -14,6 +14,8 @@ class Weather : NSObject, Codable{
     var dt_txt : String?
     var id : Int?
     var name : String?
+    var city : City?
+    var cityName : String?
     
     enum CodingKeys : String , CodingKey {
         case weather
@@ -22,6 +24,7 @@ class Weather : NSObject, Codable{
         case id
         case name
         case dt_txt
+        case city
     }
     
     required init(from decoder: Decoder) throws {
@@ -32,6 +35,7 @@ class Weather : NSObject, Codable{
         dt_txt = try container.decodeIfPresent(String.self, forKey: .dt_txt)
         id = try container.decodeIfPresent(Int.self, forKey: .id)
         name = try container.decodeIfPresent(String.self, forKey: .name)
+        city = try container.decodeIfPresent(City.self, forKey: .city)
     }
     
 }
@@ -85,6 +89,47 @@ class Main : NSObject, Codable{
         pressure = try container.decode(Int.self, forKey: .pressure)
         humidity = try container.decode(Int.self, forKey: .humidity)
     }
+}
+
+class City: NSObject,Codable {
+    var id : Int
+    var name : String
+    var coord : Coordinates
+    var country_code : String
+    
+    enum CodingKeys : String, CodingKey{
+        case id
+        case name
+        case coord
+        case country_code = "country"
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(Int.self, forKey: .id)
+        name = try container.decode(String.self, forKey: .name)
+        coord = try container.decode(Coordinates.self, forKey: .coord)
+        country_code = try container.decode(String.self, forKey: .country_code)
+        
+    }
+    
+}
+
+class Coordinates : NSObject,Codable{
+    var lat : Double
+    var lon : Double
+    
+    enum CordingKeys : String, CodingKey{
+        case lat
+        case lon
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        lat = try container.decode(Double.self, forKey: .lat)
+        lon = try container.decode(Double.self, forKey: .lon)
+    }
+    
 }
 
 enum WeatherType : String, Codable {

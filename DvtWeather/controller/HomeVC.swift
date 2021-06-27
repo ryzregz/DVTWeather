@@ -7,7 +7,7 @@
 
 import UIKit
 import CoreLocation
-
+import GooglePlaces
 class HomeVC: UIViewController {
     @IBOutlet weak var forecastTableView: UITableView!
     @IBOutlet weak var titleTemparatureLabel : UILabel!
@@ -16,11 +16,13 @@ class HomeVC: UIViewController {
     @IBOutlet weak var currentTemparatureLabel : UILabel!
     @IBOutlet weak var maximumTemparatureLabel : UILabel!
     @IBOutlet weak var minimumTemparatureLabel : UILabel!
+    @IBOutlet weak var cityLabel : UILabel!
     let api = NetworkViewModel()
     let locationService = LocationService()
     private var weatherViewModel = WeatherViewModel()
     private var dataSource : GenericTableViewDatasource<ForecastCell,Weather>!
-    let cellIdentifier = Constants.KEY_FORECASTCELL_IDENTIFIER
+    var resultsViewController: GMSAutocompleteResultsViewController?
+    var searchController: UISearchController?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -30,11 +32,10 @@ class HomeVC: UIViewController {
         getCurrentLocation(completion: { result, error in
             guard let location = result else {
                 self.showErrorAlert(withTitle: Constants.KEY_LOCATION_ERROR, message: error!.localizedDescription, completion: {(result)in
+                    Logger.Log(from: self, with: error!.localizedDescription)
                     //Get Default Location
-                    let service = WeatherService(q: Constants.KEY_DEFAULT_CITY)
-                    
-                    self.weatherViewModel.getWeatherData(params: service)
-                    self.weatherViewModel.getForecastData(params: service)
+                    self.getWeatherForecastData(city: Constants.KEY_DEFAULT_CITY)
+                    self.cityLabel.text = Constants.KEY_DEFAULT_CITY
                 })
                 return
             }
@@ -42,29 +43,50 @@ class HomeVC: UIViewController {
                 guard let placemark = placemark else {
                     return
                 }
-                
-                let service = WeatherService(q: placemark.locality!)
-                
-                
-                self.weatherViewModel.getWeatherData(params: service)
-                self.weatherViewModel.getForecastData(params: service)
+                let city = placemark.locality!
+                self.getWeatherForecastData(city: city)
+                self.cityLabel.text = city
             }
-            
-            
         })
         
         self.weatherViewModel.setWeatherData = {
+            CustomLoader.sharedInstance.hide()
             self.updateUIWithWeatherData()
         }
         
         self.weatherViewModel.setForecastData = {
+            CustomLoader.sharedInstance.hide()
             self.updateUIWithForeCastData()
         }
         
         self.weatherViewModel.onErrorHandling = { error in
+            CustomLoader.sharedInstance.hide()
             self.showErrorAlert(withTitle: Constants.KEY_API_ERROR, message: error!.customDescription, completion: {(result) in})
+            Logger.Log(from: self, with: Constants.KEY_API_ERROR)
         }
+        setupSearchView()
+    }
+    
+    func getWeatherForecastData(city : String){
+        CustomLoader.sharedInstance.show()
+        let service = WeatherService(q: city)
+        self.weatherViewModel.getWeatherData(params: service)
+        self.weatherViewModel.getForecastData(params: service)
+        updateLocationEntity(city: city)
+    }
+    
+    func setupSearchView(){
+        resultsViewController = GMSAutocompleteResultsViewController()
+        resultsViewController?.delegate = self
+        searchController = UISearchController(searchResultsController: resultsViewController)
+        searchController?.searchResultsUpdater = resultsViewController
+        searchController?.searchBar.text = Constants.KEY_LOCATION_SEARCH_TEXT
+        // Place the search bar in the navigation item's title view.
+        self.navigationItem.titleView = searchController?.searchBar
         
+        // Don't hide the navigation bar because the search bar is in it.
+        searchController?.hidesNavigationBarDuringPresentation = false
+        definesPresentationContext = true
     }
     
     func updateUIWithWeatherData(){
@@ -89,9 +111,10 @@ class HomeVC: UIViewController {
         let groupingByDay = Dictionary(grouping: self.weatherViewModel.forecastData.list, by: { $0.dt_txt!.split(separator: " ")[0] })
         //Get One item per group
         let items =  groupingByDay.values.compactMap { (vals) in
-            return vals.first //or change to "vals.last"
+            return vals.first
         }.sorted{$0.dt < $1.dt}
-        self.dataSource = GenericTableViewDatasource(cellIdentifier: cellIdentifier, items: items, configureCell: { (cell, weather) in
+        self.updateForecastEntity(weather: items)
+        self.dataSource = GenericTableViewDatasource(cellIdentifier: Constants.KEY_FORECASTCELL_IDENTIFIER, items: items, configureCell: { (cell, weather) in
             cell.configureCellWithItem(weather: weather)
         })
         
@@ -113,12 +136,39 @@ class HomeVC: UIViewController {
         }
     }
     
+    func updateLocationEntity(city : String){
+        DispatchQueue.main.async {
+            CoreDataManager.shared.persistFavouriteLocations(city: city)
+        }
+        
+    }
     
     func updateWeatherEntity(weather : Weather){
+        DispatchQueue.main.async {
+            CoreDataManager.shared.persistWeatherData(weather: weather)
+        }
+        
+    }
+    
+    func updateForecastEntity(weather : [Weather]){
         
     }
     
     
+}
+
+extension HomeVC: GMSAutocompleteResultsViewControllerDelegate{
+    func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
+        searchController?.isActive = false
+        getWeatherForecastData(city: place.formattedAddress!)
+        searchController?.searchBar.text = place.formattedAddress
+        self.cityLabel.text = place.formattedAddress
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didFailAutocompleteWithError error: Error) {
+        Logger.Log(from: self, with: Constants.KEY_GOOGLE_PLACE_ERROR)
+    }
 }
 
 

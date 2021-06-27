@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import GooglePlaces
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -26,13 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        return true
-    }
-    
-    // MARK: UISceneSession Lifecycle
-    
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        
         do {
             //
             if let url = Bundle.main.url(forResource: Constants.KEY_CONFIG_FILE, withExtension: Constants.KEY_PLIST_FILE) {
@@ -40,13 +34,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let data = try Data(contentsOf: url)
                 //
                 AppDelegate.config = try PropertyListDecoder().decode(Config.self, from: data)
+                GMSPlacesClient.provideAPIKey(AppDelegate.AppConfig!.google_api_key)
             }
         }catch{
             print(error)
             Logger.Log(from:self,with:"\(TAG): \(Constants.KEY_CONFIG_READ_ERROR) \(error)")
         }
-        
-        // Called when a new scene session is being created.
+        return true
+    }
+    
+    // MARK: UISceneSession Lifecycle
+    
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
