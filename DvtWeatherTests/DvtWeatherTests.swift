@@ -32,7 +32,7 @@ class DvtWeatherTests: XCTestCase {
         }
     }
     
-    func testIfgetCurrentLocationReturnsExpectedLocation() {
+    func test_if_getCurrentLocation_ReturnsExpectedLocation() {
 
       let locationService = LocationService()
       let expectedLocation = CLLocation(latitude: 51.50998, longitude: -0.1337)
@@ -56,11 +56,26 @@ class DvtWeatherTests: XCTestCase {
     
     
     
-    func testCoreFetchWeatherRecordsData(){
+    func test_initiating_core_data_class(){
+        let instance = CoreDataManager.shared
+        XCTAssertNotNil(instance)
+    }
+    
+    func test_if_persistence_container_initializes(){
+        let container = CoreDataManager.shared.persistentContainer
+        XCTAssertNotNil(container)
+    }
+    
+    
+    
+    func test_core_FetchWeatherRecordsData(){
         let manager = CoreDataManager()
         let expectedCount = 1
         XCTAssertEqual(manager.fetchPersistedWeatherData()?.count,expectedCount)
     }
+    
+    
+    
     
 
 }
