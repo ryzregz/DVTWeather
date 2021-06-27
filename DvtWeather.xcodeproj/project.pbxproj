@@ -23,6 +23,7 @@
 		8FAE77612687E7A100A6ACB3 /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE77602687E7A100A6ACB3 /* FavouritesVC.swift */; };
 		8FAE77632687F48800A6ACB3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE77622687F48800A6ACB3 /* Location.swift */; };
 		8FAE77652687F8EC00A6ACB3 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE77642687F8EC00A6ACB3 /* FavouriteCell.swift */; };
+		8FAE77682688075900A6ACB3 /* MockLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE77672688075900A6ACB3 /* MockLocationManager.swift */; };
 		8FB65926267D209600EC66B5 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FB65925267D209600EC66B5 /* config.plist */; };
 		8FB6592B267D242900EC66B5 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6592A267D242900EC66B5 /* AppConfig.swift */; };
 		8FB6592D267D271C00EC66B5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6592C267D271C00EC66B5 /* Logger.swift */; };
@@ -92,6 +93,7 @@
 		8FAE77602687E7A100A6ACB3 /* FavouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
 		8FAE77622687F48800A6ACB3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		8FAE77642687F8EC00A6ACB3 /* FavouriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
+		8FAE77672688075900A6ACB3 /* MockLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationManager.swift; sourceTree = "<group>"; };
 		8FB65925267D209600EC66B5 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config.plist; path = "../../../../../../Desktop/IOS Projects/RydeEssays/RydeEssays/config.plist"; sourceTree = "<group>"; };
 		8FB6592A267D242900EC66B5 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		8FB6592C267D271C00EC66B5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		8F8E2204267D184500C7544D /* DvtWeather */ = {
 			isa = PBXGroup;
 			children = (
+				8FAE77662688073E00A6ACB3 /* mock */,
 				8FAE775D2687C48900A6ACB3 /* customViews */,
 				8FB65950267EC5D300EC66B5 /* datasource */,
 				8FB65929267D241500EC66B5 /* config */,
@@ -288,6 +291,14 @@
 				8FAE775E2687C4C000A6ACB3 /* CustomLoader.swift */,
 			);
 			path = customViews;
+			sourceTree = "<group>";
+		};
+		8FAE77662688073E00A6ACB3 /* mock */ = {
+			isa = PBXGroup;
+			children = (
+				8FAE77672688075900A6ACB3 /* MockLocationManager.swift */,
+			);
+			path = mock;
 			sourceTree = "<group>";
 		};
 		8FB65927267D212600EC66B5 /* util */ = {
@@ -584,6 +595,7 @@
 				8FB65945267D604E00EC66B5 /* Weather.swift in Sources */,
 				8FB65954267ED10000EC66B5 /* ForecastCell.swift in Sources */,
 				8FB659562680C30B00EC66B5 /* LocationService.swift in Sources */,
+				8FAE77682688075900A6ACB3 /* MockLocationManager.swift in Sources */,
 				8FB6592D267D271C00EC66B5 /* Logger.swift in Sources */,
 				8FAE77632687F48800A6ACB3 /* Location.swift in Sources */,
 				8FB6593F267D588400EC66B5 /* APIClient.swift in Sources */,
