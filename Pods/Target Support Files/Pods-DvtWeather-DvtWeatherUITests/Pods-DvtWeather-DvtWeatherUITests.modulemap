@@ -1,0 +1,6 @@
+framework module Pods_DvtWeather_DvtWeatherUITests {
+  umbrella header "Pods-DvtWeather-DvtWeatherUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

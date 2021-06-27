@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--HomeVC-->
         <scene sceneID="OXe-Pu-Ca5">
             <objects>
                 <viewController id="OTJ-SZ-Ocx" customClass="HomeVC" customModule="DvtWeather" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="forest_sunny" translatesAutoresizingMaskIntoConstraints="NO" id="qyS-vF-uG5">
-                                <rect key="frame" x="0.0" y="44" width="414" height="250"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="hBO-cm-ZnT"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zql-mi-EyF">
-                                <rect key="frame" x="0.0" y="294" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="338" width="414" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="lgr-Eb-pkA">
                                         <rect key="frame" x="8" y="18" width="23.5" height="34"/>
@@ -89,7 +89,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="65" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bNX-sM-wBS">
-                                <rect key="frame" x="0.0" y="364" width="414" height="449"/>
+                                <rect key="frame" x="0.0" y="408" width="414" height="405"/>
                                 <color key="backgroundColor" red="0.2784313725" green="0.6705882353" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.2784313725" green="0.6705882353" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -138,14 +138,14 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fy-4m-zmW">
-                                <rect key="frame" x="0.0" y="363" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="407" width="414" height="1"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="bJg-1X-JIC"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cB0-Ji-Ata">
-                                <rect key="frame" x="171.5" y="140" width="71" height="58"/>
+                                <rect key="frame" x="171.5" y="184" width="71" height="58"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLx-jh-Mcp">
                                         <rect key="frame" x="20.5" y="0.0" width="30" height="29"/>
@@ -161,10 +161,17 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nairobi" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugx-WE-u2z">
+                                <rect key="frame" x="167" y="147" width="80.5" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hut-J1-eXZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Ugx-WE-u2z" firstAttribute="centerX" secondItem="geE-ky-klI" secondAttribute="centerX" id="Crh-z5-qBJ"/>
                             <constraint firstItem="Zql-mi-EyF" firstAttribute="trailing" secondItem="Hut-J1-eXZ" secondAttribute="trailing" id="Jji-7z-RgF"/>
                             <constraint firstItem="1fy-4m-zmW" firstAttribute="leading" secondItem="geE-ky-klI" secondAttribute="leading" id="KRH-AE-gbO"/>
                             <constraint firstItem="bNX-sM-wBS" firstAttribute="trailing" secondItem="Hut-J1-eXZ" secondAttribute="trailing" id="MSF-Ty-cWN"/>
@@ -174,6 +181,7 @@
                             <constraint firstItem="qyS-vF-uG5" firstAttribute="top" secondItem="Hut-J1-eXZ" secondAttribute="top" id="XHd-Tg-Ply"/>
                             <constraint firstItem="bNX-sM-wBS" firstAttribute="leading" secondItem="Hut-J1-eXZ" secondAttribute="leading" id="ZcH-cP-Mdy"/>
                             <constraint firstItem="bNX-sM-wBS" firstAttribute="top" secondItem="Zql-mi-EyF" secondAttribute="bottom" id="aDG-dI-iZa"/>
+                            <constraint firstItem="fLx-jh-Mcp" firstAttribute="top" secondItem="Ugx-WE-u2z" secondAttribute="bottom" constant="8" symbolic="YES" id="b31-Xp-3CP"/>
                             <constraint firstItem="cB0-Ji-Ata" firstAttribute="centerY" secondItem="qyS-vF-uG5" secondAttribute="centerY" id="gal-oK-baq"/>
                             <constraint firstItem="bNX-sM-wBS" firstAttribute="bottom" secondItem="Hut-J1-eXZ" secondAttribute="bottom" id="hro-R7-F41"/>
                             <constraint firstItem="cB0-Ji-Ata" firstAttribute="centerX" secondItem="qyS-vF-uG5" secondAttribute="centerX" id="kr0-ti-UFS"/>
@@ -183,8 +191,9 @@
                             <constraint firstItem="1fy-4m-zmW" firstAttribute="trailing" secondItem="Hut-J1-eXZ" secondAttribute="trailing" id="uek-gU-64y"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="SfS-EL-oR4"/>
+                    <navigationItem key="navigationItem" id="BSJ-V7-fWd"/>
                     <connections>
+                        <outlet property="cityLabel" destination="Ugx-WE-u2z" id="JMK-wk-1XZ"/>
                         <outlet property="currentTemparatureLabel" destination="AD5-VH-N6A" id="spl-Iz-YsG"/>
                         <outlet property="forecastTableView" destination="bNX-sM-wBS" id="Fyg-in-FOS"/>
                         <outlet property="maximumTemparatureLabel" destination="380-ah-F52" id="6uC-da-bQF"/>
@@ -196,23 +205,87 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ld-fD-A6Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-788.40579710144937" y="721.875"/>
+            <point key="canvasLocation" x="-813" y="1427"/>
         </scene>
         <!--Favourites-->
         <scene sceneID="rc1-bJ-f7n">
             <objects>
-                <viewController id="QTS-fG-V0d" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Favourites" id="QTS-fG-V0d" customClass="FavouritesVC" customModule="DvtWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y6x-yb-RpK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bEb-6c-lRs">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavouritesCell" rowHeight="50" id="CW0-Ov-NGo" customClass="FavouriteCell" customModule="DvtWeather" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CW0-Ov-NGo" id="WuW-q2-NIm">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nairobi" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ve6-6T-jjg">
+                                                    <rect key="frame" x="20" y="16" width="49" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fQ0-qE-Ytb">
+                                                    <rect key="frame" x="359" y="16.5" width="43" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21.5" id="WG4-NQ-eYP"/>
+                                                        <constraint firstAttribute="width" constant="43" id="aS6-dx-Yas"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fQ0-qE-Ytb" firstAttribute="trailing" secondItem="WuW-q2-NIm" secondAttribute="trailingMargin" constant="8" id="5b5-pl-QpO"/>
+                                                <constraint firstItem="Ve6-6T-jjg" firstAttribute="leading" secondItem="WuW-q2-NIm" secondAttribute="leadingMargin" id="IkX-An-cBv"/>
+                                                <constraint firstItem="fQ0-qE-Ytb" firstAttribute="centerY" secondItem="WuW-q2-NIm" secondAttribute="centerY" id="SFz-SX-EWb"/>
+                                                <constraint firstItem="Ve6-6T-jjg" firstAttribute="centerY" secondItem="WuW-q2-NIm" secondAttribute="centerY" id="j0W-Wi-VvN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="Ve6-6T-jjg" id="rz3-Df-tan"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="55n-DF-5ln"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bEb-6c-lRs" firstAttribute="leading" secondItem="55n-DF-5ln" secondAttribute="leading" id="RcQ-ue-7Dz"/>
+                            <constraint firstItem="bEb-6c-lRs" firstAttribute="bottom" secondItem="55n-DF-5ln" secondAttribute="bottom" id="Wjf-Nl-n9Z"/>
+                            <constraint firstItem="bEb-6c-lRs" firstAttribute="top" secondItem="55n-DF-5ln" secondAttribute="top" id="deM-z6-jik"/>
+                            <constraint firstItem="bEb-6c-lRs" firstAttribute="trailing" secondItem="55n-DF-5ln" secondAttribute="trailing" id="xAL-00-nEP"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favourites" id="1Ee-Hn-Pxd"/>
+                    <navigationItem key="navigationItem" title="Favourites" id="2hJ-CN-ddX"/>
+                    <connections>
+                        <outlet property="favouritesTableView" destination="bEb-6c-lRs" id="HO1-vk-lB0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAQ-fh-oGe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="712"/>
+            <point key="canvasLocation" x="1855.072463768116" y="711.83035714285711"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="xe6-4H-R1E">
+            <objects>
+                <viewController id="6g3-e4-gnL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ihu-yg-ZbS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="xcc-XW-wiS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lwX-9n-wsE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2664" y="712"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="SLe-fL-w4s">
@@ -224,16 +297,55 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="OTJ-SZ-Ocx" kind="relationship" relationship="viewControllers" id="Dp6-I3-q7A"/>
-                        <segue destination="QTS-fG-V0d" kind="relationship" relationship="viewControllers" id="R8q-2d-KoP"/>
+                        <segue destination="J88-69-w4Y" kind="relationship" relationship="viewControllers" id="Dp6-I3-q7A"/>
+                        <segue destination="VnH-Aa-13i" kind="relationship" relationship="viewControllers" id="R8q-2d-KoP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QP5-c8-KV4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-454" y="33"/>
         </scene>
+        <!--Home-->
+        <scene sceneID="mg6-ZU-aLY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J88-69-w4Y" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="SfS-EL-oR4"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="za7-VT-Zxl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OTJ-SZ-Ocx" kind="relationship" relationship="rootViewController" id="7l2-Lm-Pcn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Np2-N4-YdB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-788.40579710144937" y="721.875"/>
+        </scene>
+        <!--Favourites-->
+        <scene sceneID="L9k-0I-cUh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VnH-Aa-13i" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favourites" id="1Ee-Hn-Pxd"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="I4i-aD-qTy">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QTS-fG-V0d" kind="relationship" relationship="rootViewController" id="4ET-DK-c4j"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hsJ-P0-INp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="944.92753623188412" y="711.83035714285711"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="clear" width="13" height="13"/>
         <image name="forest_sunny" width="360" height="321"/>
         <systemColor name="systemBackgroundColor">

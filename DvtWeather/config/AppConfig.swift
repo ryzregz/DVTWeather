@@ -11,12 +11,14 @@ struct Config: Decodable {
     var clientName: String
     var headers : AppHeaders
     var messages:AppMessages
+    var google_api_key : String
     //
     enum CodingKeys : String, CodingKey {
         case environments
         case clientName = "client-name"
         case headers
         case messages
+        case google_api_key = "google-api-key"
         
     }
 }

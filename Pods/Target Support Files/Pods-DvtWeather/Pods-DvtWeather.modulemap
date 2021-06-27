@@ -1,0 +1,6 @@
+framework module Pods_DvtWeather {
+  umbrella header "Pods-DvtWeather-umbrella.h"
+
+  export *
+  module * { export * }
+}
