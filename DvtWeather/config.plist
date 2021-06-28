@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>environments</key>
+        <array>
+            <dict>
+                <key>scheme</key>
+                <string>https</string>
+                <key>host</key>
+                <string>api.openweathermap.org</string>
+                <key>base-path</key>
+                <string>/data/2.5</string>
+                <key>weather-endpoint</key>
+                <string>/weather</string>
+                <key>forecast-endpoint</key>
+                <string>/forecast</string>
+                <key>app-timeout</key>
+                <integer>2</integer>
+                <key>name</key>
+                <string>Development</string>
+                <key>active</key>
+                <true/>
+            </dict>
+            <dict>
+                <key>scheme</key>
+                <string>https</string>
+                <key>host</key>
+                <string>api.openweathermap.org</string>
+                <key>base-path</key>
+                <string>/data/2.5</string>
+                <key>weather-endpoint</key>
+                <string>/weather</string>
+                <key>forecast-endpoint</key>
+                <string>/forecast</string>
+                <key>app-timeout</key>
+                <integer>2</integer>
+                <key>name</key>
+                <string>Development</string>
+                <key>active</key>
+                <true/>
+            </dict>
+        </array>
+        <key>client-name</key>
+        <string>DVT</string>
+        <key>google-api-key</key>
+        <string>AIzaSyBLa1mRYCbDL0o8qRC14A7sS4VnLB6enPE</string>
+        <key>messages</key>
+        <dict>
+            <key>request-success</key>
+            <string>Request Received Successfully</string>
+            <key>conn-error</key>
+            <string>You have a Slow or No Internet Access. Connection to DVT Weather App service has failed</string>
+            <key>service-error</key>
+            <string>Service Error. Please try again after some time</string>
+        </dict>
+        <key>headers</key>
+        <dict>
+            <key>appid</key>
+            <string>62c4b017fe4defc9a8529f5f29df031c</string>
+        </dict>
+    </dict>
+</plist>
